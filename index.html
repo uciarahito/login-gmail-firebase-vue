@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sample google signin</title>
+  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <div id="app" class="container chat-container">
+
+     <div class="chat-input" v-if="signedIn">
+       <img :src="user.photoURL" class="col-md-1 img-responsive">
+       <br>
+       <div class="col-md-8">
+         <input type="text" class="form-control" placeholder="Input your message here..." v-model="message">
+       </div>
+       <button class="btn btn-primary" @click="sendMessage">Send</button>
+       <button class="btn btn-danger" @click="signOut">Sign Out</button>
+     </div>
+
+    <div class="chat-login" v-else>
+      <button class="btn btn-primary btn-lg" @click="signInWithGoogle">Sign In With Google to Join Chat</button>
+    </div>
+
+    <div class="container">
+        <div class="jumbotron">
+          <div class="row" v-for="list in chatLists">
+            <br>
+            <span class="col-md-3 email">{{ list.email }}:&nbsp;&nbsp;&nbsp;</span><span class="col-md-7 message">{{ list.message }}</span>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyB5XVsUhUndP2Wc70k0MSOgHzIzjW7jJ6E",
+      authDomain: "project-8219965417349987448.firebaseapp.com",
+      databaseURL: "https://project-8219965417349987448.firebaseio.com",
+      storageBucket: "project-8219965417349987448.appspot.com",
+      messagingSenderId: "138531289502"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

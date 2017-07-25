@@ -1,0 +1,29 @@
+
+.chat-container {
+  text-align: center;
+}
+
+.chat-title {
+  margin-top: 5px;
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Dosis', sans-serif;
+}
+
+.chat-input {
+  padding: 25px;
+}
+
+.chat-login button {
+  margin: 25px;
+}
+
+span.email {
+  text-align: left;
+  font-size: 13.7856px;
+}
+
+span.message {
+  text-align: left;
+  font-size: 14.7856px;
+}
